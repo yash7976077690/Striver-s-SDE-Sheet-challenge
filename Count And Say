@@ -1,0 +1,26 @@
+#include <bits/stdc++.h> 
+string writeAsYouSpeak(int n) 
+{
+	// Write your code here.
+	 if (n == 1)
+        return "1";
+    string s = writeAsYouSpeak(n - 1);
+    string res = "";
+    char ch = s[0];
+    int count = 1;
+    for (int i = 1; i < s.size(); i++)
+    {
+        if (ch == s[i])
+            count++;
+        else
+        {
+            res += to_string(count);
+            res += ch;
+            ch = s[i];
+            count = 1;
+        }
+    }
+    res += to_string(count);
+    res += ch;
+    return res;	
+}
