@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+string reverseString(string s)
+{
+    stringstream ss(s);
+    string word;
+    stack<string> st;
+    
+    // Push each word into the stack
+    while (ss >> word) {
+        st.push(word);
+    }
+    
+    string result;
+    
+    // Pop words from the stack to form the reversed string
+    while (!st.empty()) {
+        result += st.top();
+        st.pop();
+        
+        if (!st.empty()) {
+            result += " ";
+        }
+    }
+    
+    return result;
+}
